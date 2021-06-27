@@ -4,11 +4,12 @@ Required Technology: Excel, VBA
 
 This VBA file in this repository should be used to analyze yearly stock data.  It calculates the stock price change for the year, the price percent chagne for the year, and the total volume of that year.  
 
+To use this script, your data must be formatted to the excel screenshot uploaded in the repository.  This will allow that the script takes data from the correct datafields.  If you data is set up differently, then you need to adjust the script or change the format of your data.  Below is an example:
 
-![image](https://user-images.githubusercontent.com/44051207/123546126-57b45880-d729-11eb-89dc-411cbf6addc1.png)
+![image](https://user-images.githubusercontent.com/44051207/123546150-68fd6500-d729-11eb-9303-8627856b0185.png)
 
-To use this script, your data must be formatted to the excel screenshot uploaded in the repository.  This will allow that the script takes data from the correct datafields.  If you data is set up differently, then you need to adjust the script or change the format of your data.
+Once the data is in place, then import your module.  Below should be your final result!
 
-![image](https://user-images.githubusercontent.com/44051207/123547712-e0ce8e00-d72f-11eb-9315-31229e1eefb3.png)
+
 
 Please contact bhatia.neal@gmail if any questions!
