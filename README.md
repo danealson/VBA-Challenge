@@ -9,4 +9,6 @@ This VBA file in this repository should be used to analyze yearly stock data.  I
 
 To use this script, your data must be formatted to the excel screenshot uploaded in the repository.  This will allow that the script takes data from the correct datafields.  If you data is set up differently, then you need to adjust the script or change the format of your data.
 
+![image](https://user-images.githubusercontent.com/44051207/123547712-e0ce8e00-d72f-11eb-9315-31229e1eefb3.png)
+
 Please contact bhatia.neal@gmail if any questions!
