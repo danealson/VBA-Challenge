@@ -1,6 +1,27 @@
 Attribute VB_Name = "Module1"
 Sub TickerAnalysis()
 
+'Set Variables
+Dim ticker_sym As String
+
+Dim total_vol As Double
+
+Dim rowcount As Long
+rowcount = 2
+
+Dim yearopen As Double
+yearopen = 0
+
+Dim yearclose As Double
+yearclose = 0
+
+Dim year_change As Double
+yearchange = 0
+
+Dim percentchange As Double
+percentchange = 0
+    
+
 Dim ws As Worksheet
 
 
