@@ -66,7 +66,7 @@ Dim ws As Worksheet
             'Conditional to see positive or negative changes
             
             If yearchange >= 0 Then
-                ws.Cells(rowcount, 10).Interior.ColorIndex = 5
+                ws.Cells(rowcount, 10).Interior.ColorIndex = 4
                 
             Else
                 ws.Cells(rowcount, 10).Interior.ColorIndex = 3
@@ -80,7 +80,7 @@ Dim ws As Worksheet
             
                 percentchange = 0
                 ws.Cells(rowcount, 11).Value = percentchange
-                ws.Cells(rowcount, 11).NumberFormat = "0.00%)"
+                ws.Cells(rowcount, 11).NumberFormat = "0.00%"
                 
             'If new stock -- no percent change will occur
             ElseIf yearopen = 0 Then
@@ -91,9 +91,9 @@ Dim ws As Worksheet
                 
             Else
             
-                percenthange = yearclose / yearopen
-                ws.Cells(rowcount, 11).Value = perccentchange
-                ws.Cells(rowcount, 11).NumberFormat = "0.00%)"
+                percentchange = yearclose / yearopen
+                ws.Cells(rowcount, 11).Value = percentchange
+                ws.Cells(rowcount, 11).NumberFormat = "0.00%"
             
             End If
             
@@ -109,6 +109,65 @@ Dim ws As Worksheet
         
      Next i
             
+    'Create Best/Worst Performing
+    ws.Cells(2, 14).Value = "Greatest Percent Increase"
+    ws.Cells(3, 14).Value = "Worst Percent Decerease"
+    ws.Cells(4, 14).Value = "Great Total Volume"
+    ws.Cells(1, 15).Value = "Ticker"
+    ws.Cells(1, 16).Value = "Value"
+    
+    'Set Variables
+    
+    Dim beststock As String
+    Dim bestvalue As Double
+    Dim worststock As String
+    Dim worstvalue As Double
+    Dim mostvolstock As String
+    Dim mostvolvalue As Double
+    
+    lastrow = ws.Cells(Rows.Count, 9).End(xlUp).Row
+    
+    'set values as first stock -- then will loop
+    bestvalue = ws.Cells(2, 11).Value
+    worstvalue = ws.Cells(2, 11).Value
+    mostvolvalue = ws.Cells(2, 12).Value
+    
+    For j = 2 To lastrow
+    
+        If Cells(j, 11).Value > bestvalue Then
+            bestvalue = Cells(j, 11).Value
+            beststock = Cells(j, 9).Value
+            
+        End If
+        
+        If Cells(j, 11).Value > worstvalue Then
+            worstvalue = Cells(j, 11).Value
+            worststock = Cells(j, 9).Value
+            
+        End If
+        
+        If ws.Cells(j, 12).Value > mostvolvalue Then
+        
+            mostvolvalue = Cells(j, 12).Value
+            mostvolstock = Cells(j, 9).Value
+            
+        End If
+        
+    Next j
+    
+    ws.Cells(2, 15).Value = beststock
+    ws.Cells(2, 16).Value = bestvalue
+    ws.Cells(2, 16).NumberFormat = "0.00%"
+    ws.Cells(3, 15).Value = worststock
+    ws.Cells(3, 16).Value = worstvalue
+    ws.Cells(3, 16).NumberFormat = "0.00%"
+    ws.Cells(4, 15).Value = mostvolstock
+    ws.Cells(4, 16).Value = mostvolvalue
+    
+    ws.Columns("I:L").EntireColumn.AutoFit
+    ws.Columns("O:Q").EntireColumn.AutoFit
+    
+    
                 
     Next ws
 
