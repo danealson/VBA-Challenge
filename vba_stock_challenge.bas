@@ -9,7 +9,7 @@ Dim ws As Worksheet
         ws.Cells(1, 9).Value = "Ticker"
         ws.Cells(1, 10).Value = "Yearly Change"
         ws.Cells(1, 11).Value = "Percent Change"
-        ws.Cells(1, 12).Value = "Total Stock Value"
+        ws.Cells(1, 12).Value = "Total Stock Volume"
         
         
         'Set Variables
@@ -31,6 +31,13 @@ Dim ws As Worksheet
         
         Dim percentchange As Double
         percentchange = 0
+                
+        Dim greatpercentincr As Double
+        Dim greatpercentincrtick As String
+        Dim greatpercentdecr As Double
+        Dim greatpercentdecrtick As String
+        Dim greatstockvol As Double
+        Dim greatstockvoltick As String
             
         lastrow = ws.Cells(Rows.Count, 1).End(xlUp).Row
         
@@ -109,63 +116,7 @@ Dim ws As Worksheet
         
      Next i
             
-    'Create Best/Worst Performing
-    ws.Cells(2, 14).Value = "Greatest Percent Increase"
-    ws.Cells(3, 14).Value = "Worst Percent Decerease"
-    ws.Cells(4, 14).Value = "Great Total Volume"
-    ws.Cells(1, 15).Value = "Ticker"
-    ws.Cells(1, 16).Value = "Value"
-    
-    'Set Variables
-    
-    Dim beststock As String
-    Dim bestvalue As Double
-    Dim worststock As String
-    Dim worstvalue As Double
-    Dim mostvolstock As String
-    Dim mostvolvalue As Double
-    
-    lastrow = ws.Cells(Rows.Count, 9).End(xlUp).Row
-    
-    'set values as first stock -- then will loop
-    bestvalue = ws.Cells(2, 11).Value
-    worstvalue = ws.Cells(2, 11).Value
-    mostvolvalue = ws.Cells(2, 12).Value
-    
-    For j = 2 To lastrow
-    
-        If Cells(j, 11).Value > bestvalue Then
-            bestvalue = Cells(j, 11).Value
-            beststock = Cells(j, 9).Value
-            
-        End If
-        
-        If Cells(j, 11).Value > worstvalue Then
-            worstvalue = Cells(j, 11).Value
-            worststock = Cells(j, 9).Value
-            
-        End If
-        
-        If ws.Cells(j, 12).Value > mostvolvalue Then
-        
-            mostvolvalue = Cells(j, 12).Value
-            mostvolstock = Cells(j, 9).Value
-            
-        End If
-        
-    Next j
-    
-    ws.Cells(2, 15).Value = beststock
-    ws.Cells(2, 16).Value = bestvalue
-    ws.Cells(2, 16).NumberFormat = "0.00%"
-    ws.Cells(3, 15).Value = worststock
-    ws.Cells(3, 16).Value = worstvalue
-    ws.Cells(3, 16).NumberFormat = "0.00%"
-    ws.Cells(4, 15).Value = mostvolstock
-    ws.Cells(4, 16).Value = mostvolvalue
-    
-    ws.Columns("I:L").EntireColumn.AutoFit
-    ws.Columns("O:Q").EntireColumn.AutoFit
+ 
     
     
                 
